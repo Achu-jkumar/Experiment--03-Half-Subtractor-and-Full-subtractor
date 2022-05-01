@@ -59,7 +59,9 @@ endmodule
 
 ## Output:
 
-## Truthtable
+## Truthtable:
+![truth1](./truth1.png)
+![truth2](./truth2.png)
 
 
 
