@@ -12,32 +12,50 @@ Subtractor circuits take two binary numbers as input and subtract one binary num
 ## Half Subtractor Full Subtractor
 ## Half Subtractor
 The half-subtractor is a combinational circuit which is used to perform subtraction of two bits. It has two inputs, X (minuend) and Y (subtrahend) and two outputs D (difference) and B (borrow). To perform x - y, we have to check the relative magnitudes of x and y. If x ;;, y, we have three possibilities: 0 - 0 = 0, 1 - 0 = 1, and 1 - I = 0. The result is called the difference bit. If x < y, we have 0 - I, and it is necessary to borrow a 1 from the next higher stage. The I borrowed from the next higher stage adds 2 to the minuend bit, just as in the decimal system a borrow adds 10 to a minuend digit. With the minuend equal to 2, the difference becomes 2 - I = 1. The half-subtractor needs two outputs. One output generates the difference and will be designated by the symbol D. The second output, designated B for borrow, generates the binary signal that informs the next stage that a I has been borrowed.
-![half-subtractor9](https://user-images.githubusercontent.com/36288975/166112538-58c3bc7c-ee5d-4e6a-ac8d-8e8328efe27a.png)
-
 
 Sum = X'Y+XY' = X ⊕ Y
 Carry=X'Y
-
-## Full Subtractor
-A full subtractor is a combinational circuit that performs subtraction involving three bits, namely minuend, subtrahend, and borrow-in . It accepts three inputs: minuend, subtrahend and a borrow bit and it produces two outputs: difference and borrow. 
-![full-subtractor6](https://user-images.githubusercontent.com/36288975/166112541-24c68359-3de8-4674-ae22-8272ffc385ed.png)
-
-
-Diff = A ⊕ B ⊕ Bin B = A'Bin + A'B + BBin
-
 ## Procedure
+## Step 1: 
+With the help of Quartus 2 software.
+## Step 2:
+After run the code do the the analysis and simulation.
+## Step 3:
+Then get the timing diagram by using universal method.
 
-
-
-Write the detailed procedure here 
 
 
 ## Program:
-/*
-Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+```
+Developed by:J.Archana priya 
+RegisterNumber:  212221230007.
+
+Half subtracter:
+
+module Exp03EEE(a,b,diff,borrow);
+input a,b;
+output diff,borrow;
+wire x;
+xor(diff,a,b);
+not(x,a);
+and(borrow,x,b);
+endmodule
+
+Full subtracter:
+
+module Exp00302 (a,b,c,diff,borrow);
+input a,b,c;
+output diff,borrow;
+wire p;
+assign diff = ((a^b)^c);
+not(p,a);
+assign borrow =((p&b)|(p&c)|(b&c));
+endmodule  
+
+
+
+```
+
 
 ## Output:
 
@@ -45,10 +63,15 @@ RegisterNumber:
 
 
 
-##  RTL realization
+##  RTL realization 
+![rtl01](./rtl01.png)
+![time1](./time1.png)
+
 
 
 ## Timing diagram 
+![rtl02](./rtl02.png)
+![time2](./time2.png)
 
 ## Result:
 Thus the half subtractor and full subtractor circuits are designed and the truth tables is verified using quartus software.
